@@ -4,7 +4,7 @@ Basic guide for using Authorize.net's Accept.JS
 
 Usage: 
 
-'''
+```
 // build promise
 const creditCardPromise = chargeCreditCard(token, DOLLAR_AMOUNT);
 
@@ -12,18 +12,18 @@ const creditCardPromise = chargeCreditCard(token, DOLLAR_AMOUNT);
 creditCardPromise
   .then((transactionId) => { ... })
   .catch((errCode) => { ... })
-'''
+```
 
 ## Installation
 
 On Client
 
 1) To HTML head:
-'''
+```
 <script type="text/javascript" src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8"></script>
-'''
+```
 2) Add Accept.JS response handler (similiar to offical documentation), using your own this.CallBack
-'''
+```
 function acceptJSHandler(response) {
   if (response.messages.resultCode === 'Error') {
     console.log(response.messages.message[0].code);
@@ -32,9 +32,9 @@ function acceptJSHandler(response) {
     this.CallBack(token);
   }
 }
-'''
+```
 3) In Relevant React Component Add Method:
-'''
+```
 handlePrepOrder(privateCardDetails) {
     const authData = { 
       clientKey: CLIENT_KEY,
@@ -50,7 +50,7 @@ handlePrepOrder(privateCardDetails) {
     window.responseHandler = acceptJSHandler.bind(this);
     Accept.dispatchData(secureData, 'responseHandler')
   }
-'''
+```
 
 On Server (Node.js)
 
