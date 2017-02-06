@@ -46,7 +46,7 @@ handlePrepOrder(privateCardDetails) {
     }
 
     // Accept JS requires callback handler to be in window (UGLY...)
-    // Bind this and token for CallBack
+    // Bind this for CallBack
     window.responseHandler = acceptJSHandler.bind(this);
     Accept.dispatchData(secureData, 'responseHandler')
   }
